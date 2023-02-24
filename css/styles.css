@@ -171,7 +171,7 @@ address {
   content: '';
   display: block;
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   border-bottom: 4px solid var(--color-pressed-state);
   border-radius: 2px;
@@ -556,13 +556,11 @@ address {
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
   background: rgba(46, 47, 66, 0.4);
-  transition: opacity 500ms, visibility 500ms;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -577,6 +575,8 @@ address {
 
 .modal {
   position: relative;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
   max-width: 408px;
@@ -585,7 +585,8 @@ address {
   border-radius: 4px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  transition: transform 500ms;
+  transform: translate(-50%, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
